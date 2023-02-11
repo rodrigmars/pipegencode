@@ -4,21 +4,21 @@ from pipegen import pipe_generator
 
 def signature(data: list) -> None:
 
-    response = None
+    forward = None
 
-    for i, output in enumerate(pipe_generator((create, find_by_email, email))):
+    for i, pipe in enumerate(pipe_generator((create, find_by_email, email))):
 
         if i < 1:
 
             data.append(
-                output(data[-1][0] + 1, ('lkc@452.com', True)))
+                pipe(data[-1][0] + 1, ('lkc@452.com', True)))
 
-            response = data[-1][0], data
+            forward = data[-1][0], data
 
             print(f"\npipe:{i}", data, "\n")
 
         else:
-            print(f"pipe:{i}", response := output(response), "\n")
+            print(f"pipe:{i}", forward := pipe(forward), "\n")
 
 
 def main():

@@ -1,12 +1,12 @@
 from crud import create, find_by_email, email
-from pipegen import pipe_generator
+from pipegen import pipe_chain
 
 
 def signature(data: list) -> None:
 
     forward = None
 
-    for i, pipe in enumerate(pipe_generator((create, find_by_email, email))):
+    for i, pipe in enumerate(pipe_chain((create, find_by_email, email))):
 
         if i < 1:
 

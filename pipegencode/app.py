@@ -34,12 +34,12 @@ def main():
           [22, 'op_@785.com', True],
           [25, 'rt_@89.com', False]]
 
-    data = ('lkc@452.com', True)
+    data = None
 
     for i, output in enumerate(pipe_generator((create, find_by_email, email))):
 
         if i < 1:
-            mock_data.append(output(mock_data[-1][0] + 1, data))
+            mock_data.append(output(mock_data[-1][0] + 1, ('lkc@452.com', True)))
             
             data = mock_data[-1][0], mock_data
             
